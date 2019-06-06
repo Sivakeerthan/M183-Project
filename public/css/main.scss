@@ -1,0 +1,307 @@
+$primary-color-dark: #512DA8;
+$primary-color-light: #D1C4E9;
+$primary-color: #673AB7;
+$accent-color: #536DFE;
+$text: #ffffff;
+$primary-text: #212121;
+html{
+  padding:0;
+  margin:0;
+  body {
+    background-color: white;
+    color: $primary-text;
+    font-family: "Roboto",sans-serif;
+    display:block;
+    margin:0;
+    padding:0;
+    height:100%;
+    width:100%;
+    #header{
+      display:block;
+      margin:0;
+      padding:0;
+      height: 5em;
+      width:100%;
+      color: $text;
+      background-color:$primary-color-dark;
+      h3{
+        vertical-align: middle;
+        float:left;
+        font-size: 4em;
+        display:inherit;
+        margin: 0;
+
+      }
+      .logout-icon{
+        text-decoration: none;
+        float:right;
+        height: 2em;
+        width: auto;
+        i{
+          font-size: 4em;
+          color: white;
+        }
+      }
+    }
+    .container{
+      .signbtn{
+        height:5em;
+        margin:5px;
+        width:100%;
+        text-align: center;
+         p{
+           font-size:1.5em;
+           vertical-align: center;
+         }
+      }
+      h1{
+        padding-left: 1.37em;
+      }
+      .returnButton{
+        color: $primary-text;
+        border-bottom: 1px solid $primary-text;
+        &:hover{
+          cursor: pointer;
+          border-bottom:none;
+        }
+      }
+    }
+    .choice{
+      width:100%;
+      #profile{
+        height: 100%;
+        width: 20em;
+        margin-top: 0;
+        margin-left: 10px;
+        margin-right: 10px;
+        display:inline-block;
+        .profile-picture{
+          width:80%;
+          margin:0 auto;
+          text-align: center;
+          height:auto;
+        }
+        h1{
+          font-size: 3em;
+          color: black;
+        }
+      }
+      #training-canvas{
+        position: relative;
+        display:inline-block;
+        height:100%;
+        width:50em;
+        margin-left:10px;
+        padding:0;
+        margin-top: 14px;
+        .options{
+          width:100%;
+          height:10em;
+          padding:0;
+          vertical-align: middle;
+          text-align: center;
+          span{
+            position: relative;
+            top:40%;
+            font-size: 4em;
+
+          }
+        }
+        #FiBl{
+          #img-div{
+            img{
+              width:100%;
+              height: auto;
+            }
+          }
+          #answer-div{
+            input{
+              width: 80%;
+            }
+          }
+        }
+        #FiPa{
+          z-index:-1;
+          .c1{
+            z-index:-1;
+            height:100%;
+            width:50%;
+            float:left;
+            button{
+
+              display:block;
+              background-color: $accent-color;
+              width:100%;
+              height:5em;
+              color: white;
+              border: rgba(0,0,0,0);
+              transition: border-color .3s linear;
+              &:hover{
+                border: solid 1px rgba(255,255,255,1);
+                transition: border-color .3s linear;
+              }
+            }
+            .selected{
+              position: relative;
+              z-index:5;
+              transition: .3s ease-in-out;
+              box-shadow: 2px 2px 2px 2px rgba(10,10,10,0.5);
+            }
+            .disabled{
+              z-index: -1;
+              transition: .3s ease-in-out;
+              background-color: $primary-color-dark;
+              &:hover{
+                border: none;
+              }
+            }
+            .right-answ{
+              background-color: forestgreen !important;
+              transition: background-color .3s ease-in-out;
+            }
+            .wrong-answ{
+              background-color: darkred !important;
+              transition: background-color .3s ease-in-out;
+            }
+          }
+          .c2{
+            z-index: -1;
+            height:100%;
+            width:50%;
+            float:right;
+            button{
+              display:block;
+              background-color: $accent-color;
+              width:100%;
+              height:5em;
+              color: white;
+              border: rgba(0,0,0,0);
+              transition: border-color .3s linear;
+              &:hover{
+                border: solid 1px rgba(255,255,255,1);
+                transition: border-color .3s linear;
+              }
+            }
+            .selected{
+              position: relative;
+              z-index:5;
+              transition: .3s ease-in-out;
+              box-shadow: 2px 2px 2px 2px rgba(10,10,10,0.5);
+            }
+            .disabled{
+              z-index: -1;
+              transition: .3s ease-in-out;
+              background-color: $primary-color-dark;
+              &:hover{
+                border: none;
+              }
+            }
+            .right-answ{
+              background-color: forestgreen !important;
+              transition: background-color .3s ease-in-out;
+            }
+            .wrong-answ{
+              background-color: darkred !important;
+              transition: background-color .3s ease-in-out;
+            }
+
+          }
+
+        }
+        #MuCho{
+          #quest-div{
+            .quest{
+              color: black;
+            }
+          }
+          #answer-div{
+            .c1{
+              height:100%;
+              width:50%;
+              float:left;
+              button{
+
+                display:block;
+                background-color: $accent-color;
+                width:100%;
+                height:5em;
+                color: white;
+                border: rgba(0,0,0,0);
+                transition: border-color .3s linear;
+                &:hover{
+                  border: solid 1px rgba(255,255,255,1);
+                  transition: border-color .3s linear;
+                }
+              }
+              .right-answ{
+                background-color: forestgreen;
+                transition: background-color .3s ease-in-out;
+              }
+              .wrong-answ{
+                background-color: darkred;
+                transition: background-color .3s ease-in-out;
+              }
+            }
+            .c2{
+              height:100%;
+              width:50%;
+              float:right;
+              button{
+                display:block;
+                background-color: $accent-color;
+                width:100%;
+                height:5em;
+                color: white;
+                border: rgba(0,0,0,0);
+                transition: border-color .3s linear;
+                &:hover{
+                  border: solid 1px rgba(255,255,255,1);
+                  transition: border-color .3s linear;
+                }
+              }
+              .right-answ{
+                background-color: forestgreen;
+                transition: background-color .3s ease-in-out;
+              }
+              .wrong-answ{
+                background-color: darkred;
+                transition: background-color .3s ease-in-out;
+              }
+              .disabled{
+                transition: .3s ease-in-out;
+                background-color: $primary-color-dark;
+                &:hover{
+                  border: none;
+                }
+              }
+
+            }
+          }
+          .btn-div{
+            max-width:10%;
+            max-height:10%;
+            float:right;
+            margin: 0;
+            padding: 0;
+            position:relative;
+            bottom:0;
+            right:0;
+            button{
+
+            }
+          }
+        }
+        #msg{
+          display:none;
+          padding:10px;
+          color:black;
+          height:50%;
+          width:50%;
+        }
+
+      }
+
+    }
+  }
+}
+
