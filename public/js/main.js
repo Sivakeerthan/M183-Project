@@ -121,5 +121,8 @@ $(document).ready(function () {
         return false;
     }
 }
+function callsysopt(){
+    $(location).attr('href','/choice/?name='+$("#sysopt").val());
+}
 
 

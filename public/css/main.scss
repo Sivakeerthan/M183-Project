@@ -11,30 +11,30 @@ html{
     background-color: white;
     color: $primary-text;
     font-family: "Roboto",sans-serif;
-    display:block;
-    margin:0;
-    padding:0;
-    height:100%;
-    width:100%;
+    display: block;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
     #header{
-      display:block;
-      margin:0;
-      padding:0;
+      display: block;
+      margin: 0;
+      padding: 0;
       height: 5em;
-      width:100%;
+      width: 100%;
       color: $text;
-      background-color:$primary-color-dark;
+      background-color: $primary-color-dark;
       h3{
         vertical-align: middle;
-        float:left;
+        float: left;
         font-size: 4em;
-        display:inherit;
+        display: inherit;
         margin: 0;
 
       }
       .logout-icon{
         text-decoration: none;
-        float:right;
+        float: right;
         height: 2em;
         width: auto;
         i{
@@ -49,10 +49,10 @@ html{
         margin:5px;
         width:100%;
         text-align: center;
-         p{
-           font-size:1.5em;
-           vertical-align: center;
-         }
+        p{
+          font-size:1.5em;
+          vertical-align: center;
+        }
       }
       h1{
         padding-left: 1.37em;
@@ -67,14 +67,16 @@ html{
       }
     }
     .choice{
-      width:100%;
+      width: 50%;
+      margin: auto;
+      text-align: center;
       #profile{
         height: 100%;
-        width: 20em;
+        height: 100%;
+        width: 50%;
+        margin: auto;
         margin-top: 0;
-        margin-left: 10px;
-        margin-right: 10px;
-        display:inline-block;
+        display: inline-block;
         .profile-picture{
           width:80%;
           margin:0 auto;
@@ -84,6 +86,11 @@ html{
         h1{
           font-size: 3em;
           color: black;
+        }
+        #output{
+          max-width:100%;
+          max-height: 20em;
+          overflow: auto;
         }
       }
       #training-canvas{
