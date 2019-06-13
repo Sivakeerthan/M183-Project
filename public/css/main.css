@@ -49,13 +49,14 @@ html {
         cursor: pointer;
         border-bottom: none; }
     html body .choice {
-      width: 100%; }
+      width: 50%;
+      margin: auto;
+      text-align: center;}
       html body .choice #profile {
         height: 100%;
-        width: 20em;
+        width: 50%;
         margin-top: 0;
-        margin-left: 10px;
-        margin-right: 10px;
+        margin: auto;
         display: inline-block; }
         html body .choice #profile .profile-picture {
           width: 80%;

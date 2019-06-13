@@ -27,6 +27,8 @@ SET time_zone = "+00:00";
 --
 -- Tabellenstruktur für Tabelle `fibl`
 --
+CREATE DATABASE mrtsj;
+USE mrtsj;
 
 CREATE TABLE `fibl` (
   `fiblid` int(11) NOT NULL,

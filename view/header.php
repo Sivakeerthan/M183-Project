@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title><?= $title ?> | IDPA BWD</title>
+    <title>183-Projekt</title>
 
 
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -24,7 +24,7 @@
   <body>
     <div id="header" class="nav-wrapper">
 
-        <h3>ModuleRepetitionTool-SJ</h3>
+        <h3>Modul 183 Web-Applikation</h3>
         <?php if(!isset($_SESSION)){session_start();}  if(isset($_SESSION['uid'])): ?>
             <a href="/logout" class="logout-icon"><i class="material-icons" >exit_to_app</i></a>
         <?php endif; ?>
@@ -33,7 +33,7 @@
     <div class="container">
 
 
-    <h1><?= $heading ?></h1>
+    <h1 style="text-align: center;padding: 0;">Username</h1>
     <?php if(!isset($_SESSION)){session_start();} if(isset($_SESSION['uid'])):?>
     </div>
     <div class="choice">
