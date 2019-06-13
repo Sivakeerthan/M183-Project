@@ -26,6 +26,7 @@ class UserController
 
         $view->display();
     }
+
     public function doLogin(){
         $userRepository = new UserRepository();
         if(isset($_POST['send'])) {
@@ -34,7 +35,7 @@ class UserController
                 $password = htmlspecialchars($_POST['password']);
                 $user = $userRepository->readByName($username);
                 if ($user->uname != null) {
-                    if (password_verify($password, $user->pw)) {
+                    if (password_verify($password+$user->salt, $user->pw)) {
                         if(!isset($_SESSION['uid'])) {
                             session_start();
                             $_SESSION['uid'] = $user->uid;

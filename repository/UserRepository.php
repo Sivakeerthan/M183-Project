@@ -30,12 +30,13 @@ class UserRepository extends Repository
      */
     public function create($username, $password, $isAdmin)
     {
-        $password = password_hash($password, PASSWORD_DEFAULT);
+        $salt = random_bytes(255);
+        $password = password_hash($password+$salt, PASSWORD_DEFAULT);
 
-        $query = "INSERT INTO $this->tableName (uname, pw, isAdmin) VALUES (?, ?, ?)";
+        $query = "INSERT INTO $this->tableName (uname, pw, isAdmin,salt) VALUES (?, ?, ?,?)";
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->bind_param('ssi',$username, $password, $isAdmin);
+        $statement->bind_param('ssis',$username, $password, $isAdmin,$salt);
 
         if (!$statement->execute()) {
             throw new Exception($statement->error);
@@ -47,7 +48,7 @@ class UserRepository extends Repository
     public function readByName($uname)
     {
         // Query erstellen
-        $query = "SELECT uid,uname, pw FROM {$this->tableName} WHERE uname =?";
+        $query = "SELECT uid,uname,pw,salt FROM {$this->tableName} WHERE uname =?";
 
         // Datenbankverbindung anfordern und, das Query "preparen" (vorbereiten)
         // und die Parameter "binden"

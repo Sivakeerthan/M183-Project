@@ -60,48 +60,20 @@ function disablecol(col) {
    }
 }
 
-$(".btn11").click(function () {
-    $(".btn11").addClass("selected");
-    $(".btn11").prop('disabled', true);
+$(".btn11").click(this.btnClicked("btn11","c1"));
+$(".btn12").click(this.btnClicked("btn12","c2"));
+$(".btn21").click(this.btnClicked("btn21","c1"));
+$(".btn22").click(this.btnClicked("btn22","c2"));
+$(".btn31").click(this.btnClicked("btn31","c1"));
+$(".btn32").click(this.btnClicked("btn32","c2"));
+
+function btnClicked(selectorClass,disable){
+    $("."+selectorClass).addClass("selected");
+    $("."+selectorClass).prop('disabled', true);
     clickedbtns+=1;
     disablebtns();
-    disablecol("c1");
-});
-$(".btn12").click(function () {
-    $(".btn12").addClass("selected");
-    $(".btn12").prop('disabled', true);
-    clickedbtns+=1;
-    disablebtns();
-    disablecol("c2");
-});
-$(".btn21").click(function () {
-    $(".btn21").addClass("selected");
-    $(".btn21").prop('disabled', true);
-    clickedbtns+=1;
-    disablebtns();
-    disablecol("c1");
-});
-$(".btn22").click(function () {
-    $(".btn22").addClass("selected");
-    $(".btn22").prop('disabled', true);
-    clickedbtns+=1;
-    disablebtns();
-    disablecol("c2");
-});
-$(".btn31").click(function () {
-    $(".btn31").addClass("selected");
-    $(".btn31").prop('disabled', true);
-    clickedbtns+=1;
-    disablebtns();
-    disablecol("c1");
-});
-$(".btn32").click(function () {
-    $(".btn32").addClass("selected");
-    $(".btn32").prop('disabled', true);
-    clickedbtns+=1;
-    disablebtns();
-    disablecol("c2");
-});
+    disablecol(disable);
+}
 
 $("#answer-div .solut").click(function () {
     $("#answer-div button").addClass("wrong-answ");

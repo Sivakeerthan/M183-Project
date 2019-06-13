@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 23. Nov 2018 um 20:50
--- Server-Version: 10.1.34-MariaDB
--- PHP-Version: 5.6.37
+-- Erstellungszeit: 13. Jun 2019 um 13:33
+-- Server-Version: 10.1.36-MariaDB
+-- PHP-Version: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,21 +21,22 @@ SET time_zone = "+00:00";
 --
 -- Datenbank: `mrtsj`
 --
+CREATE DATABASE IF NOT EXISTS `mrtsj` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `mrtsj`;
 
 -- --------------------------------------------------------
 
 --
 -- Tabellenstruktur für Tabelle `fibl`
 --
-CREATE DATABASE mrtsj;
-USE mrtsj;
 
-CREATE TABLE `fibl` (
-  `fiblid` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `fibl` (
+  `fiblid` int(11) NOT NULL AUTO_INCREMENT,
   `exc_path` varchar(50) NOT NULL,
   `answer` varchar(100) NOT NULL,
-  `points` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `points` int(11) DEFAULT NULL,
+  PRIMARY KEY (`fiblid`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 --
 -- Daten für Tabelle `fibl`
@@ -59,12 +60,13 @@ INSERT INTO `fibl` (`fiblid`, `exc_path`, `answer`, `points`) VALUES
 -- Tabellenstruktur für Tabelle `fipa`
 --
 
-CREATE TABLE `fipa` (
-  `fipaid` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `fipa` (
+  `fipaid` int(11) NOT NULL AUTO_INCREMENT,
   `element_1` varchar(50) NOT NULL,
   `element_2` varchar(50) NOT NULL,
-  `points` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `points` int(11) DEFAULT NULL,
+  PRIMARY KEY (`fipaid`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 --
 -- Daten für Tabelle `fipa`
@@ -88,12 +90,13 @@ INSERT INTO `fipa` (`fipaid`, `element_1`, `element_2`, `points`) VALUES
 -- Tabellenstruktur für Tabelle `mucho`
 --
 
-CREATE TABLE `mucho` (
-  `muchoid` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `mucho` (
+  `muchoid` int(11) NOT NULL AUTO_INCREMENT,
   `question` varchar(100) NOT NULL,
   `answer` varchar(50) NOT NULL,
-  `points` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `points` int(11) DEFAULT NULL,
+  PRIMARY KEY (`muchoid`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 --
 -- Daten für Tabelle `mucho`
@@ -115,77 +118,22 @@ INSERT INTO `mucho` (`muchoid`, `question`, `answer`, `points`) VALUES
 -- Tabellenstruktur für Tabelle `user`
 --
 
-CREATE TABLE `user` (
-  `uid` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `user` (
+  `uid` int(11) NOT NULL AUTO_INCREMENT,
   `uname` varchar(50) NOT NULL,
   `pw` varchar(100) NOT NULL,
   `score` int(11) DEFAULT NULL,
-  `isAdmin` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `isAdmin` tinyint(1) NOT NULL,
+  `salt` varchar(256) NOT NULL,
+  PRIMARY KEY (`uid`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Daten für Tabelle `user`
 --
 
-INSERT INTO `user` (`uid`, `uname`, `pw`, `score`, `isAdmin`) VALUES
-(2, 'SVRNM', '$2y$10$WCAFcsG8kVdNpnEIvDyQEOKscr0wmZxQo25vbhfv3bigQChGpuF1y', 5626, 1),
-(3, 'Test', '$2y$10$Ys0iG5d4Yc06hrxVN0tBiesXlh6NdeB4aNLYWXyeaZKBGTo4TYgda', NULL, 0);
-
---
--- Indizes der exportierten Tabellen
---
-
---
--- Indizes für die Tabelle `fibl`
---
-ALTER TABLE `fibl`
-  ADD PRIMARY KEY (`fiblid`);
-
---
--- Indizes für die Tabelle `fipa`
---
-ALTER TABLE `fipa`
-  ADD PRIMARY KEY (`fipaid`);
-
---
--- Indizes für die Tabelle `mucho`
---
-ALTER TABLE `mucho`
-  ADD PRIMARY KEY (`muchoid`);
-
---
--- Indizes für die Tabelle `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`uid`);
-
---
--- AUTO_INCREMENT für exportierte Tabellen
---
-
---
--- AUTO_INCREMENT für Tabelle `fibl`
---
-ALTER TABLE `fibl`
-  MODIFY `fiblid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
--- AUTO_INCREMENT für Tabelle `fipa`
---
-ALTER TABLE `fipa`
-  MODIFY `fipaid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
-
---
--- AUTO_INCREMENT für Tabelle `mucho`
---
-ALTER TABLE `mucho`
-  MODIFY `muchoid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
---
--- AUTO_INCREMENT für Tabelle `user`
---
-ALTER TABLE `user`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+INSERT INTO `user` (`uid`, `uname`, `pw`, `score`, `isAdmin`, `salt`) VALUES
+(1, 'Salttest', '$2y$10$Vi6HKgAo1/3M3gxr.uNVJeM/OmLm1B7XH1JNEqXwthTiUgjCpRRJ6', NULL, 0, '?V?x?#\\\r$N?;??c@??ٲ>)l?J##???i????=?B\'X?vI????ǃ~?2b#v\n?t??\0???>]v??\"̻ۢ?ӓ???8|??\'׊???`B?\Z?i??5H???f?P???E???$??X8??P\'΋J???n\r^K???i#?p???h?????ޭ?I?????Cӓ???I?ΕZgA븪~?~╦?౬??w??\ZNZ?Ӕ??d\Z?7#??O???;Ԙ\r???`? ?[U<,0?D???');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
