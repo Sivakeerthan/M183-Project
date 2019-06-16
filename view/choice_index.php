@@ -7,11 +7,19 @@ if (isset($_SESSION['uid'])): ?>
 <div class="container">
 
     <div class="input-field col s12">
-        <input id="sysopt" type="text" class="validate">
-        <a onclick="callsysopt()" class="btn-floating waves-effect waves-light btn-large">
-            <i class="material-icons left">send</i> </a>
+        <select id="sysopt">
+            <?php foreach($options as $option):?>
+            <option value=<?=$option?>><?=$option?></option>
+            <?php endforeach;?>
+        </select>
         <label for="sysopt">Systemkommando</label>
     </div>
+    <div class="input-field col s12">
+    <a onclick="callsysopt()" class="btn-floating waves-effect waves-light btn-large">
+        <i class="material-icons left">send</i>
+    </a>
+    </div>
+
     <div id="output">
         <?php if (isset($output)): ?>
             <pre><?= $output ?></pre>

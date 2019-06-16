@@ -107,6 +107,7 @@ $("#answer-div button").click(function (){
 
 });
 $(document).ready(function () {
+    $("#sysopt").formSelect();
     $('#mucho_next').click(function () {
         $(location).attr('href', './checkMuCho?solved=' + $('.quest').attr('id') + '&corr=' + rightansw);
     });
@@ -121,6 +122,7 @@ $(document).ready(function () {
         return false;
     }
 }
+
 function callsysopt(){
     $(location).attr('href','/choice/?name='+$("#sysopt").val());
 }

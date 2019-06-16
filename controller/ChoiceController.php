@@ -13,6 +13,7 @@ require_once '../repository/FiBlRepository.php';
 class ChoiceController
 {
     private $err = array();
+    private $commands = ['dir','hostname','whoami'];
     public function index()
     {
         $view = new View('choice_index');
@@ -25,6 +26,7 @@ class ChoiceController
         if (isset($_SESSION['uid'])) {
             $user = $userRepository->readById($_SESSION['uid']);
             $view->uname = $user->uname;
+            $view->options = $this->commands;
 
             if(isset($_GET['name'])){
                 $view->output =  $this->syscommand(htmlspecialchars($_GET['name']),$user->uname);
@@ -48,14 +50,20 @@ class ChoiceController
     }
     private function syscommand($sysopt){
         $out = "";
-        switch ($sysopt){
-            case 'dir': $out= shell_exec('dir');
-            break;
-            case 'hostname': $out = shell_exec('hostname');
-            break;
-            case 'whoami': $out = shell_exec('whoami');
-            break;
+        foreach ($this->commands as $cmd){
+            if($sysopt == $cmd){
+                $out = shell_exec($cmd);
+                break;
+            }
         }
+//        switch ($sysopt){
+//            case 'dir': $out= shell_exec('dir');
+//            break;
+//            case 'hostname': $out = shell_exec('hostname');
+//            break;
+//            case 'whoami': $out = shell_exec('whoami');
+//            break;
+//        }
         return $out;
     }
 
