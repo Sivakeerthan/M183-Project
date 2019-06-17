@@ -40,6 +40,11 @@ class UserController
                             session_start();
                             $_SESSION['uid'] = $user->uid;
                             $_SESSION['points'] = 0;
+                            $myFile = fopen("../data/Logfile.txt","a") or die("Unable to open file!");
+                            $today = date("M,d,Y h:i:s A");
+                            $txt = $user->uname ." hat sich angemeldet! Uhrzeit: ".$today ."\r\n";
+                            fwrite($myFile,$txt);
+                            fclose($myFile);
                         }
                         else{
                             session_destroy();
@@ -49,11 +54,21 @@ class UserController
                         }
                         header('Location: /choice');
                     } else {
+                        $myFile = fopen("../data/Logfile.txt","a") or die("Unable to open file!");
+                        $today = date("M,d,Y h:i:s A");
+                        $txt = $user->uname ." hat sich versucht anzumeleden!(Falsches Passwort) Uhrzeit: ".$today ."\r\n";
+                        fwrite($myFile,$txt);
+                        fclose($myFile);
                         $this->doError('Wrong Password!!');
                         header('Location: /user/login');
 
                     }
                 } else {
+                    $myFile = fopen("../data/Logfile.txt","a") or die("Unable to open file!");
+                    $today = date("M,d,Y h:i:s A");
+                    $txt = "Jemand hat versucht, sich mit einem inexistenten Account anzumelden! Uhrzeit: ".$today ."\r\n";
+                    fwrite($myFile,$txt);
+                    fclose($myFile);
                     $this->doError('User does not Exist!!');
                     header('Location: /user/login');
                 }

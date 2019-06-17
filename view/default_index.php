@@ -8,8 +8,6 @@
             </div>
             </a>
         </div>
-
-
         <div class="col s6">
             <a href="./user/login">
             <div class="btn signbtn">
