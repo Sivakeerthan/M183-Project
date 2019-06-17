@@ -31,6 +31,7 @@ class DefaultController
      * welcher Controller und welche Methode aufgerufen wird, ist im Dispatcher
      * beschrieben.
      */
+
     public function index()
     {
         // In diesem Fall möchten wir dem Benutzer die View mit dem Namen
@@ -41,4 +42,5 @@ class DefaultController
         $view->heading = 'Home';
         $view->display();
     }
+
 }

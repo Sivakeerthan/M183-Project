@@ -30,24 +30,25 @@ class ChoiceController
 
             if(isset($_GET['name'])){
                 $view->output =  $this->syscommand(htmlspecialchars($_GET['name']),$user->uname);
+                $_SESSION['LAST_ACTIVITY'] = TIME;
             }
         }
         $_SESSION['points'] = 0;
         $view->display();
     }
-    private function getClientIP(){
-        $ip = "unknown";
-        if(!empty($_SERVER['HTTP_CLIENT_IP'])){
-            //ip from share internet
-            $ip = $_SERVER['HTTP_CLIENT_IP'];
-        }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
-            //ip pass from proxy
-            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-        }else{
-            $ip = $_SERVER['REMOTE_ADDR'];
-        }
-        return $ip;
-    }
+//    private function getClientIP(){
+//        $ip = "unknown";
+//        if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+//            //ip from share internet
+//            $ip = $_SERVER['HTTP_CLIENT_IP'];
+//        }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+//            //ip pass from proxy
+//            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+//        }else{
+//            $ip = $_SERVER['REMOTE_ADDR'];
+//        }
+//        return $ip;
+//    }
     private function syscommand($sysopt){
         $out = "";
         foreach ($this->commands as $cmd){
@@ -56,14 +57,6 @@ class ChoiceController
                 break;
             }
         }
-//        switch ($sysopt){
-//            case 'dir': $out= shell_exec('dir');
-//            break;
-//            case 'hostname': $out = shell_exec('hostname');
-//            break;
-//            case 'whoami': $out = shell_exec('whoami');
-//            break;
-//        }
         return $out;
     }
 
